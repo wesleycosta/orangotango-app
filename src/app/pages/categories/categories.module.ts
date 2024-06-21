@@ -10,6 +10,7 @@ import * as TablerIcons from 'angular-tabler-icons/icons';
 
 import { CategoryRoutes } from './categories.routing';
 import { CategoryListComponent } from './category-list/category-list.component';
+import { CategoryCreateComponent } from './category-create/category-create.component';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { CategoryListComponent } from './category-list/category-list.component';
   ],
   declarations: [
     CategoryListComponent,
+    CategoryCreateComponent,
   ],
 })
 export class CategoriesModule { }

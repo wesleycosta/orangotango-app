@@ -11,7 +11,7 @@ export const navItems: NavItem[] = [
   },
   {
     displayName: 'Reservations',
-    iconName: 'list',
+    iconName: 'building-skyscraper',
     route: 'ui-components/lists',
   },
   {
@@ -19,12 +19,12 @@ export const navItems: NavItem[] = [
   },
   {
     displayName: 'Rooms',
-    iconName: 'layout-navbar-expand',
+    iconName: 'bed',
     route: '/ui-components/badge',
   },
   {
     displayName: 'Categories',
-    iconName: 'poker-chip',
+    iconName: 'stars',
     route: '/categories',
   }
 ];

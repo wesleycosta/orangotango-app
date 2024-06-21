@@ -8,7 +8,7 @@ export interface categoryModel {
 const ELEMENT_DATA: categoryModel[] = [
   {
     id: '1010',
-    name: 'Premimum',
+    name: 'Premium',
   },
   {
     id: '1010',
