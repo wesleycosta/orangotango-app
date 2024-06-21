@@ -1,0 +1,20 @@
+.centered-toolbar {
+    justify-content: center;
+    height: 64px;
+}
+
+.centered-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    color: red !important;
+}
+
+mat-toolbar {
+    background: #d7e3ff;
+}
+
+.content {
+    width: 80%;
+}
