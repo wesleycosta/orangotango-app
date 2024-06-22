@@ -19,6 +19,13 @@ export class CategoryService extends BaseService {
         return this.http
             .post(this.urlCategoryApi, input, super.GetHeaderJson())
             .pipe(map(super.extractData)
-        );
+            );
+    }
+
+    search(searchValue: string): Observable<categoryModel[]> {
+        const url = `${this.urlCategoryApi}/search?searchValue=${encodeURIComponent(searchValue)}`;
+        return this.http
+            .get(url, super.GetHeaderJson())
+            .pipe(map(super.extractData));
     }
 }

@@ -29,6 +29,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideToastr } from 'ngx-toastr';
 import { NotifierService } from './services/notifier.service';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { NotifierService } from './services/notifier.service';
     ReactiveFormsModule,
     MaterialModule,
     MatSnackBarModule,
+    MatIconModule,
     ToastrModule.forRoot(),
     TablerIconsModule.pick(TablerIcons),
   ],

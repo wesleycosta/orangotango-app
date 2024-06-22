@@ -1,16 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { categoryModel } from '../../../models/category.model';
+import { CategoryService } from 'src/app/services/category.service';
 
-const ELEMENT_DATA: categoryModel[] = [
-  {
-    id: '1010',
-    name: 'Premium',
-  },
-  {
-    id: '1010',
-    name: 'Master',
-  },
-];
 @Component({
   selector: 'app-category-list',
   templateUrl: './category-list.component.html',
@@ -18,10 +9,32 @@ const ELEMENT_DATA: categoryModel[] = [
 })
 export class CategoryListComponent implements OnInit {
   displayedColumns: string[] = ['name', 'actions'];
-  dataSource = ELEMENT_DATA;
+  dataSource!: categoryModel[];
+  searchValue: string = '';
+  showSpinner: boolean = false;
 
-  constructor() { }
+  constructor(private categoryService: CategoryService) { }
 
   ngOnInit(): void {
+    this.searchCategories();
+  }
+
+  searchCategories(): void {
+    if (this.showSpinner) {
+      return;
+    }
+
+    this.showSpinner = true;
+    this.categoryService.search(this.searchValue).subscribe({
+      next: (response) => {
+        this.showSpinner = false;
+        this.dataSource = response;
+      },
+    })
+  }
+  onKeyUp(event: KeyboardEvent) {
+    if (event.key === 'Enter') {
+      this.searchCategories();
+    }
   }
 }
