@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-export interface categoryModel {
-  id: string;
-  name: string;
-}
+import { categoryModel } from '../../../models/category.model';
 
 const ELEMENT_DATA: categoryModel[] = [
   {

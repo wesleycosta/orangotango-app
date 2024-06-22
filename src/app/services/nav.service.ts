@@ -4,7 +4,6 @@ import { BehaviorSubject } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class NavService {
-
     public currentUrl = new BehaviorSubject<any>(undefined);
 
     constructor(private router: Router) {
@@ -14,6 +13,4 @@ export class NavService {
             }
         });
     }
-
-
 }
