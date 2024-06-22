@@ -23,12 +23,11 @@ import { SidebarComponent } from './layouts/full/sidebar/sidebar.component';
 import { HeaderComponent } from './layouts/full/header/header.component';
 import { BrandingComponent } from './layouts/full/sidebar/branding.component';
 import { AppNavItemComponent } from './layouts/full/sidebar/nav-item/nav-item.component';
-import { CategoryService } from './services/category.service';
 import { ToastrModule } from 'ngx-toastr';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideToastr } from 'ngx-toastr';
-import { NotifierService } from './services/notifier.service';
 import { DeleteDialogComponent } from './core/components/delete-dialog/delete-dialog.component';
+import { NotifierService } from './core/services/notifier.service';
 
 @NgModule({
   declarations: [

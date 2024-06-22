@@ -14,6 +14,10 @@ export const CategoryRoutes: Routes = [
         path: 'new',
         component: CategoryCreateComponent,
       },
+      {
+        path: 'edit/:id',
+        component: CategoryCreateComponent
+      },
     ],
   },
 ];

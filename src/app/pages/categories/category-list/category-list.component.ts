@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { categoryModel } from '../../../models/category.model';
 import { CategoryService } from 'src/app/services/category.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteDialogComponent } from 'src/app/core/components/delete-dialog/delete-dialog.component';
-import { NotifierService } from 'src/app/services/notifier.service';
+import { NotifierService } from 'src/app/core/services/notifier.service';
+import { CategoryModel } from 'src/app/models/category.model';
 
 @Component({
   selector: 'app-category-list',
@@ -12,7 +12,7 @@ import { NotifierService } from 'src/app/services/notifier.service';
 })
 export class CategoryListComponent implements OnInit {
   displayedColumns: string[] = ['name', 'actions'];
-  dataSource!: categoryModel[];
+  dataSource!: CategoryModel[];
   searchValue: string = '';
   showSpinner: boolean = false;
 

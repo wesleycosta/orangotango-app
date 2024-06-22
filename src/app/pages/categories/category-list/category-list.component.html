@@ -41,7 +41,7 @@
                             </mat-icon>
                         </button>
                         <mat-menu #menu="matMenu" class="cardWithShadow">
-                            <button mat-menu-item>
+                            <button mat-menu-item [routerLink]="['/categories/edit', element.id]">
                                 <span>Edit</span>
                             </button>
                             <button mat-menu-item (click)="openDeleteDialog(element.id)">
