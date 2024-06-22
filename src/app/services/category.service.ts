@@ -18,12 +18,17 @@ export class CategoryService extends BaseService {
     add(input: CategoryInputModel): Observable<categoryModel> {
         return this.http
             .post(this.urlCategoryApi, input, super.GetHeaderJson())
-            .pipe(map(super.extractData)
-            );
+            .pipe(map(super.extractData));
+    }
+
+    delete(id: string): Observable<any> {
+        return this.http
+            .delete(`${this.urlCategoryApi}/${id}`, super.GetHeaderJson())
+            .pipe(map(super.extractData));
     }
 
     search(searchValue: string): Observable<categoryModel[]> {
-        const url = `${this.urlCategoryApi}/search?searchValue=${encodeURIComponent(searchValue)}`;
+        const url = `${this.urlCategoryApi}?searchValue=${encodeURIComponent(searchValue)}`;
         return this.http
             .get(url, super.GetHeaderJson())
             .pipe(map(super.extractData));

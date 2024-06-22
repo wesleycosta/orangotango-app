@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { categoryModel } from '../../../models/category.model';
 import { CategoryService } from 'src/app/services/category.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DeleteDialogComponent } from 'src/app/core/components/delete-dialog/delete-dialog.component';
+import { NotifierService } from 'src/app/services/notifier.service';
 
 @Component({
   selector: 'app-category-list',
@@ -13,7 +16,10 @@ export class CategoryListComponent implements OnInit {
   searchValue: string = '';
   showSpinner: boolean = false;
 
-  constructor(private categoryService: CategoryService) { }
+  constructor(private dialog: MatDialog,
+    private categoryService: CategoryService,
+    private notifierService: NotifierService) {
+  }
 
   ngOnInit(): void {
     this.searchCategories();
@@ -32,9 +38,31 @@ export class CategoryListComponent implements OnInit {
       },
     })
   }
+
   onKeyUp(event: KeyboardEvent) {
     if (event.key === 'Enter') {
       this.searchCategories();
     }
+  }
+
+  openDeleteDialog(id: string): void {
+    const dialogRef = this.dialog.open(DeleteDialogComponent);
+    dialogRef.afterClosed().subscribe(confirmation => {
+      if (!confirmation) {
+        return;
+      }
+
+      this.categoryService.delete(id).subscribe({
+        next: () => {
+          debugger;
+          this.dataSource = this.dataSource.filter(p => p.id != id);
+          this.notifierService.notifySuccess();
+        },
+      })
+    });
+  }
+
+  hasDataSource(): boolean {
+    return this.dataSource && this.dataSource.length > 0;
   }
 }

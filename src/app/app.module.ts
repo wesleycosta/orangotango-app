@@ -24,12 +24,11 @@ import { HeaderComponent } from './layouts/full/header/header.component';
 import { BrandingComponent } from './layouts/full/sidebar/branding.component';
 import { AppNavItemComponent } from './layouts/full/sidebar/nav-item/nav-item.component';
 import { CategoryService } from './services/category.service';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ToastrModule } from 'ngx-toastr';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideToastr } from 'ngx-toastr';
 import { NotifierService } from './services/notifier.service';
-import { MatIconModule } from '@angular/material/icon';
+import { DeleteDialogComponent } from './core/components/delete-dialog/delete-dialog.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +39,7 @@ import { MatIconModule } from '@angular/material/icon';
     HeaderComponent,
     BrandingComponent,
     AppNavItemComponent,
+    DeleteDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,8 +49,6 @@ import { MatIconModule } from '@angular/material/icon';
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    MatSnackBarModule,
-    MatIconModule,
     ToastrModule.forRoot(),
     TablerIconsModule.pick(TablerIcons),
   ],
@@ -59,8 +57,7 @@ import { MatIconModule } from '@angular/material/icon';
     provideAnimations(),
     provideToastr(),
     NotifierService,
-    CategoryService,
   ],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

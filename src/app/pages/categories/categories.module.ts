@@ -11,6 +11,7 @@ import * as TablerIcons from 'angular-tabler-icons/icons';
 import { CategoryRoutes } from './categories.routing';
 import { CategoryListComponent } from './category-list/category-list.component';
 import { CategoryCreateComponent } from './category-create/category-create.component';
+import { CategoryService } from 'src/app/services/category.service';
 
 @NgModule({
   imports: [
@@ -25,5 +26,8 @@ import { CategoryCreateComponent } from './category-create/category-create.compo
     CategoryListComponent,
     CategoryCreateComponent,
   ],
+  providers: [
+    CategoryService,
+  ]
 })
 export class CategoriesModule { }
