@@ -4,6 +4,7 @@ import { HttpClient } from "@angular/common/http";
 import { BaseService } from 'src/app/services/base.service';
 import { Observable, map } from "rxjs";
 import { CategoryInputModel } from "../models/category-input.model";
+import { categoryModel } from "../models/category.model";
 
 @Injectable()
 export class CategoryService extends BaseService {
@@ -14,9 +15,10 @@ export class CategoryService extends BaseService {
         this.urlCategoryApi = `${this.UrlApiGateway}/rooms/api/categories`;
     }
 
-    add(input: CategoryInputModel): Observable<any> {
+    add(input: CategoryInputModel): Observable<categoryModel> {
         return this.http
             .post(this.urlCategoryApi, input, super.GetHeaderJson())
-            .pipe(map(super.extractData));
+            .pipe(map(super.extractData)
+        );
     }
 }

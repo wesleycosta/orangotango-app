@@ -1,6 +1,6 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { CategoryInputModel } from 'src/app/models/category-input.model';
 import { CategoryService } from 'src/app/services/category.service';
@@ -43,11 +43,12 @@ export class CategoryCreateComponent implements OnInit {
   }
 
   private processSuccess() {
-    this.motifierService.successfullyRegistered();
+    this.motifierService.notifySuccess();
+    this.goToCategories();
   }
 
-  private processError(data: any) {
-    alert('Houve um erro ao conectar com a API');
+  private processError(data: HttpErrorResponse) {
+    this.motifierService.notifyErrors(data);
   }
 
   private toInputModel(): CategoryInputModel {
