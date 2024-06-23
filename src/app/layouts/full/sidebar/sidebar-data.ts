@@ -2,7 +2,7 @@ import { NavItem } from './nav-item/nav-item';
 
 export const navItems: NavItem[] = [
   {
-    navCap: 'Reservations',
+    navCap: 'Management',
   },
   {
     displayName: 'Dashboard',
@@ -15,7 +15,7 @@ export const navItems: NavItem[] = [
     route: 'ui-components/lists',
   },
   {
-    navCap: 'Gorvernanca',
+    navCap: 'Housekeeping',
   },
   {
     displayName: 'Rooms',

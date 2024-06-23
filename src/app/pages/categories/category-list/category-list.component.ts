@@ -14,7 +14,7 @@ export class CategoryListComponent implements OnInit {
   displayedColumns: string[] = ['name', 'actions'];
   dataSource!: CategoryModel[];
   searchValue: string = '';
-  showSpinner: boolean = false;
+  loadingData: boolean = false;
 
   constructor(private dialog: MatDialog,
     private categoryService: CategoryService,
@@ -26,14 +26,14 @@ export class CategoryListComponent implements OnInit {
   }
 
   searchCategories(): void {
-    if (this.showSpinner) {
+    if (this.loadingData) {
       return;
     }
 
-    this.showSpinner = true;
+    this.loadingData = true;
     this.categoryService.search(this.searchValue).subscribe({
       next: (response) => {
-        this.showSpinner = false;
+        this.loadingData = false;
         this.dataSource = response;
       },
     })
