@@ -35,6 +35,11 @@ const routes: Routes = [
         loadChildren: () =>
           import('./pages/housekeeping/categories/category.module').then((m) => m.CategoryModule),
       },
+      {
+        path: 'rooms',
+        loadChildren: () =>
+          import('./pages/housekeeping/rooms/room.module').then((m) => m.RoomModule),
+      },
     ],
   },
   {

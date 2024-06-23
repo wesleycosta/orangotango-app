@@ -18,13 +18,13 @@ export const navItems: NavItem[] = [
     navCap: 'Housekeeping',
   },
   {
-    displayName: 'Rooms',
-    iconName: 'bed',
-    route: '/ui-components/badge',
-  },
-  {
     displayName: 'Categories',
     iconName: 'stars',
     route: '/categories',
-  }
+  },
+  {
+    displayName: 'Rooms',
+    iconName: 'bed',
+    route: '/rooms',
+  },
 ];
