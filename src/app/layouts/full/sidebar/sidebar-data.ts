@@ -7,12 +7,12 @@ export const navItems: NavItem[] = [
   {
     displayName: 'Dashboard',
     iconName: 'layout-dashboard',
-    route: '/dashboard',
+    route: '/',
   },
   {
     displayName: 'Reservations',
     iconName: 'building-skyscraper',
-    route: 'ui-components/lists',
+    route: '/dashboard',
   },
   {
     navCap: 'Housekeeping',

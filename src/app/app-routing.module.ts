@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BlankComponent } from './layouts/blank/blank.component';
 import { FullComponent } from './layouts/full/full.component';
 
 const routes: Routes = [
@@ -19,18 +18,6 @@ const routes: Routes = [
           import('./pages/pages.module').then((m) => m.PagesModule),
       },
       {
-        path: 'ui-components',
-        loadChildren: () =>
-          import('./pages/ui-components/ui-components.module').then(
-            (m) => m.UicomponentsModule
-          ),
-      },
-      {
-        path: 'extra',
-        loadChildren: () =>
-          import('./pages/extra/extra.module').then((m) => m.ExtraModule),
-      },
-      {
         path: 'categories',
         loadChildren: () =>
           import('./pages/housekeeping/categories/category.module').then((m) => m.CategoryModule),
@@ -41,20 +28,7 @@ const routes: Routes = [
           import('./pages/housekeeping/rooms/room.module').then((m) => m.RoomModule),
       },
     ],
-  },
-  {
-    path: '',
-    component: BlankComponent,
-    children: [
-      {
-        path: 'authentication',
-        loadChildren: () =>
-          import('./pages/authentication/authentication.module').then(
-            (m) => m.AuthenticationModule
-          ),
-      },
-    ],
-  },
+  }
 ];
 
 @NgModule({
