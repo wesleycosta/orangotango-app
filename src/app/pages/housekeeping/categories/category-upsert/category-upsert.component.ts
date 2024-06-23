@@ -7,11 +7,11 @@ import { CategoryInputModel } from 'src/app/models/category-input.model';
 import { CategoryService } from 'src/app/services/category.service';
 
 @Component({
-  selector: 'app-category-create',
-  templateUrl: './category-create.component.html',
-  styleUrl: './category-create.component.scss'
+  selector: 'app-category-upsert',
+  templateUrl: './category-upsert.component.html',
+  styleUrl: './category-upsert.component.scss'
 })
-export class CategoryCreateComponent implements OnInit {
+export class CategoryUpsertComponent implements OnInit {
   form!: FormGroup;
   id: string | null = null;
   title: string | null = null;

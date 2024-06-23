@@ -1,6 +1,6 @@
+import { CategoryUpsertComponent } from './category-upsert/category-upsert.component';
 import { Routes } from '@angular/router';
 import { CategoryListComponent } from './category-list/category-list.component';
-import { CategoryCreateComponent } from './category-create/category-create.component';
 
 export const CategoryRoutes: Routes = [
   {
@@ -12,11 +12,11 @@ export const CategoryRoutes: Routes = [
       },
       {
         path: 'new',
-        component: CategoryCreateComponent,
+        component: CategoryUpsertComponent,
       },
       {
         path: 'edit/:id',
-        component: CategoryCreateComponent
+        component: CategoryUpsertComponent
       },
     ],
   },
