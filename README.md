@@ -1,3 +1,7 @@
+# orangotango-app
+
+![Logo](https://github.com/wesleycosta/orangotango/raw/main/images/logos/logo_full.png)
+
 # TestApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.1.
