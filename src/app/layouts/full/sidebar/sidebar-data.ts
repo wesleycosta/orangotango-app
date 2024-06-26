@@ -11,20 +11,20 @@ export const navItems: NavItem[] = [
   },
   {
     displayName: 'Reservations',
-    iconName: 'building-skyscraper',
+    iconName: 'luggage',
     route: '/dashboard',
   },
   {
     navCap: 'Housekeeping',
   },
   {
-    displayName: 'Categories',
-    iconName: 'stars',
-    route: '/categories',
-  },
-  {
     displayName: 'Rooms',
     iconName: 'bed',
     route: '/rooms',
+  },
+  {
+    displayName: 'Categories',
+    iconName: 'stars',
+    route: '/categories',
   },
 ];

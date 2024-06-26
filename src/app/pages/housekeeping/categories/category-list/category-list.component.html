@@ -16,10 +16,6 @@
 
         <div class="d-flex justify-content-center align-items-center min-vh-100">
             <div class="row w-100">
-                <div class="col-12" *ngIf="loadingData">
-                    <mat-spinner></mat-spinner>
-                </div>
-
                 <div class="col-12 text-center" *ngIf="!hasDataSource() && !loadingData">
                     <p>No items found</p>
                 </div>

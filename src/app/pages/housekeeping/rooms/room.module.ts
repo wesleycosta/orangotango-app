@@ -11,6 +11,8 @@ import { MaterialModule } from 'src/app/material.module';
 import { RoomListComponent } from './room-list/room-list.component';
 import { RoomUpsertComponent } from './room-upsert/room-upsert.component';
 import { RoomRoutes } from './room.routing';
+import { RoomService } from '../../../services/room.service';
+import { CategoryService } from 'src/app/services/category.service';
 
 @NgModule({
   imports: [
@@ -26,6 +28,8 @@ import { RoomRoutes } from './room.routing';
     RoomUpsertComponent,
   ],
   providers: [
+    RoomService,
+    CategoryService,
   ]
 })
 export class RoomModule { }

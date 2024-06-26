@@ -28,6 +28,7 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideToastr } from 'ngx-toastr';
 import { DeleteDialogComponent } from './core/components/delete-dialog/delete-dialog.component';
 import { NotifierService } from './core/services/notifier.service';
+import { DigitOnlyModule } from '@uiowa/digit-only';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { NotifierService } from './core/services/notifier.service';
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
+    DigitOnlyModule,
     ToastrModule.forRoot(),
     TablerIconsModule.pick(TablerIcons),
   ],

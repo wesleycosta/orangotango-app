@@ -8,16 +8,16 @@ import { CategoryInputModel } from "../models/category-input.model";
 
 @Injectable()
 export class CategoryService extends BaseService {
-    private urlCategoryApi: string;
+    private urlCategories: string;
 
     constructor(private http: HttpClient) {
         super()
-        this.urlCategoryApi = `${this.UrlApiGateway}/rooms/api/categories`;
+        this.urlCategories = `${this.UrlApiGateway}/rooms/api/categories`;
     }
 
     add(input: CategoryInputModel): Observable<CategoryModel> {
         return this.http
-            .post(this.urlCategoryApi, input, super.GetHeaderJson())
+            .post(this.urlCategories, input, super.GetHeaderJson())
             .pipe(map(super.extractData));
     }
 
@@ -39,14 +39,20 @@ export class CategoryService extends BaseService {
             .pipe(map(super.extractData));
     }
 
+    getAll(): Observable<CategoryModel[]> {
+        return this.http
+            .get(this.urlCategories, super.GetHeaderJson())
+            .pipe(map(super.extractData));
+    }
+
     search(searchValue: string): Observable<CategoryModel[]> {
-        const url = `${this.urlCategoryApi}?searchValue=${encodeURIComponent(searchValue)}`;
+        const url = `${this.urlCategories}/search?searchValue=${encodeURIComponent(searchValue)}`;
         return this.http
             .get(url, super.GetHeaderJson())
             .pipe(map(super.extractData));
     }
 
     private getUrlWithId(id: string): string {
-        return `${this.urlCategoryApi}/${id}`;
+        return `${this.urlCategories}/${id}`;
     }
 }

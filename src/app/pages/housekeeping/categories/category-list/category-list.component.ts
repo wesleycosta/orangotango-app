@@ -58,6 +58,9 @@ export class CategoryListComponent implements OnInit {
           this.dataSource = this.dataSource.filter(p => p.id != id);
           this.notifierService.notifySuccess();
         },
+        error: (error) => {
+          this.notifierService.notifyErrors(error)
+        }
       })
     });
   }
