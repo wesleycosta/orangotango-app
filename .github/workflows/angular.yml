@@ -43,7 +43,15 @@ jobs:
       - name: Build and Push Docker image
         run: |
           IMAGE_TAG=${{ secrets.DOCKER_USER }}/orangotango-app:$(date +'%Y%m%d%H%M%S')
+          echo "IMAGE_TAG=$IMAGE_TAG"
           docker buildx build --platform linux/amd64,linux/arm64 --push --tag $IMAGE_TAG .
+        env:
+          DOCKER_USER: ${{ secrets.DOCKER_USER }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Tag latest
+        run: |
+          IMAGE_TAG=${{ secrets.DOCKER_USER }}/orangotango-app:$(date +'%Y%m%d%H%M%S')
           docker tag $IMAGE_TAG ${{ secrets.DOCKER_USER }}/orangotango-app:latest
           docker push ${{ secrets.DOCKER_USER }}/orangotango-app:latest
         env:
