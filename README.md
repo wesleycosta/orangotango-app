@@ -1,6 +1,7 @@
 # orangotango-app
-
 ![Logo](https://github.com/wesleycosta/orangotango/raw/main/images/logos/logo_full.png)
+
+[![Docker Hub](https://img.shields.io/badge/docker-hub-blue.svg)](https://hub.docker.com/repository/docker/wesleycosta/orangotango-app)
 
 # TestApp
 
