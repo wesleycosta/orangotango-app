@@ -12,6 +12,7 @@ import { ReservationRoutes } from './reservation.routing';
 import { ReservationListComponent } from './reservation-list/reservation-list.component';
 import { ReservationUpsertComponent } from './reservation-upsert/reservation-upsert.component';
 import { ReservationService } from 'src/app/services/reservation.service';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { ReservationService } from 'src/app/services/reservation.service';
     FormsModule,
     ReactiveFormsModule,
     TablerIconsModule.pick(TablerIcons),
+    MatNativeDateModule,
   ],
   declarations: [
     ReservationListComponent,

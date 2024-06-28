@@ -6,6 +6,7 @@ import { BaseService } from "../core/services/base.service";
 import { ReservationInputModel } from "../models/reservation-input.model";
 import { ReservationModel } from "../models/reservation.model";
 import { ReservationFullModel } from "../models/reservation-full.model";
+import { RoomModel } from "../models/room.model";
 
 @Injectable()
 export class ReservationService extends BaseService {
@@ -45,6 +46,18 @@ export class ReservationService extends BaseService {
         if (searchValue) {
             url = `${url}?searchValue=${encodeURIComponent(searchValue)}`;
         }
+
+        return this.http
+            .get(url, super.GetHeaderJson())
+            .pipe(map(super.extractData));
+    }
+
+    getRooms(reservationId: string | null): Observable<RoomModel[]> {
+        let url = `${this.urlReservations}/rooms`;
+        if (reservationId) {
+            url = `${url}?reservationId=${reservationId}`;
+        }
+
         return this.http
             .get(url, super.GetHeaderJson())
             .pipe(map(super.extractData));
