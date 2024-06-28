@@ -1,6 +1,9 @@
 # orangotango-app
-
 ![Logo](https://github.com/wesleycosta/orangotango/raw/main/images/logos/logo_full.png)
+
+[![CodeFactor](https://www.codefactor.io/repository/github/wesleycosta/orangotango-app/badge)](https://www.codefactor.io/repository/github/wesleycosta/orangotango-app)
+[![Build](https://github.com/wesleycosta/orangotango-app/actions/workflows/angular.yml/badge.svg)](https://github.com/wesleycosta/orangotango-app/actions/workflows/angular.yml)
+[![Docker Hub](https://img.shields.io/badge/docker-hub-blue.svg)](https://hub.docker.com/repository/docker/wesleycosta/orangotango-app)
 
 # TestApp
 
