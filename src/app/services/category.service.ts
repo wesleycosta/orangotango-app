@@ -12,7 +12,7 @@ export class CategoryService extends BaseService {
 
     constructor(private http: HttpClient) {
         super()
-        this.urlCategories = `${this.UrlApiGateway}/rooms/api/categories`;
+        this.urlCategories = `${this.UrlApiGateway}/housekeeping/api/categories`;
     }
 
     add(input: CategoryInputModel): Observable<CategoryModel> {
@@ -46,7 +46,10 @@ export class CategoryService extends BaseService {
     }
 
     search(searchValue: string): Observable<CategoryModel[]> {
-        const url = `${this.urlCategories}/search?searchValue=${encodeURIComponent(searchValue)}`;
+        let url = `${this.urlCategories}/search`;
+        if (searchValue) {
+            url = `${url}?searchValue=${encodeURIComponent(searchValue)}`;
+        }
         return this.http
             .get(url, super.GetHeaderJson())
             .pipe(map(super.extractData));

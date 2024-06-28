@@ -1,31 +1,30 @@
-import { RoomInputModel } from './../models/room-input.model';
-import { RoomModel } from './../models/room.model';
-import { RoomFullModel } from './../models/room-full.model';
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 
 import { Observable, map } from "rxjs";
 import { BaseService } from "../core/services/base.service";
-
+import { ReservationInputModel } from "../models/reservation-input.model";
+import { ReservationModel } from "../models/reservation.model";
+import { ReservationFullModel } from "../models/reservation-full.model";
 
 @Injectable()
-export class RoomService extends BaseService {
-    private urlRoomsApi: string;
+export class ReservationService extends BaseService {
+    private urlReservations: string;
 
     constructor(private http: HttpClient) {
         super()
-        this.urlRoomsApi = `${this.UrlApiGateway}/housekeeping/api/rooms`;
+        this.urlReservations = `${this.UrlApiGateway}/management/api/reservations`;
     }
 
-    add(inputModel: RoomInputModel): Observable<RoomModel> {
+    add(input: ReservationInputModel): Observable<ReservationModel> {
         return this.http
-            .post(this.urlRoomsApi, inputModel, super.GetHeaderJson())
+            .post(this.urlReservations, input, super.GetHeaderJson())
             .pipe(map(super.extractData));
     }
 
-    update(id: string, inputModel: RoomInputModel): Observable<RoomModel> {
+    update(id: string, command: ReservationInputModel): Observable<ReservationModel> {
         return this.http
-            .put(this.getUrlWithId(id), inputModel, super.GetHeaderJson())
+            .put(this.getUrlWithId(id), command, super.GetHeaderJson())
             .pipe(map(super.extractData));
     }
 
@@ -35,14 +34,14 @@ export class RoomService extends BaseService {
             .pipe(map(super.extractData));
     }
 
-    getById(id: string): Observable<RoomModel> {
+    getById(id: string): Observable<ReservationModel> {
         return this.http
             .get(this.getUrlWithId(id), super.GetHeaderJson())
             .pipe(map(super.extractData));
     }
 
-    search(searchValue: string): Observable<RoomFullModel[]> {
-        let url = `${this.urlRoomsApi}/search`;
+    search(searchValue: string): Observable<ReservationFullModel[]> {
+        let url = `${this.urlReservations}/search`;
         if (searchValue) {
             url = `${url}?searchValue=${encodeURIComponent(searchValue)}`;
         }
@@ -52,6 +51,6 @@ export class RoomService extends BaseService {
     }
 
     private getUrlWithId(id: string): string {
-        return `${this.urlRoomsApi}/${id}`;
+        return `${this.urlReservations}/${id}`;
     }
 }

@@ -1,0 +1,94 @@
+<mat-card class="cardWithShadow">
+    <mat-card-content class="p-24">
+        <mat-card-title>Reservations</mat-card-title>
+        <div class="row search">
+            <div class="col-lg-10">
+                <mat-form-field class="w-100" appearance="outline">
+                    <mat-label>Search</mat-label>
+                    <input matInput [(ngModel)]="searchValue" (keyup)="onKeyUp($event)" />
+                </mat-form-field>
+            </div>
+            <div class="col-lg-2">
+                <button mat-flat-button class="add-btn" color="primary" matTooltip="Register a new reservation"
+                    [routerLink]="['/reservations/new']">New</button>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-center align-items-center min-vh-100">
+            <div class="row w-100">
+                <div class="col-12 text-center" *ngIf="!hasDataSource() && !loadingData">
+                    <p>No items found</p>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="!loadingData && hasDataSource()" class="table-responsive m-t-16">
+            <table mat-table [dataSource]="dataSource" class="w-100">
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef class="f-w-600 mat-subtitle-1 f-s-14">Name</th>
+                    <td mat-cell *matCellDef="let element" class="mat-body-1"> {{ element.guestName }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="roomName">
+                    <th mat-header-cell *matHeaderCellDef class="f-w-600 mat-subtitle-1 f-s-14">Room</th>
+                    <td mat-cell *matCellDef="let element" class="mat-body-1">
+                        {{ element.roomName }}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="checkIn">
+                    <th mat-header-cell *matHeaderCellDef class="f-w-600 mat-subtitle-1 f-s-14">Check In</th>
+                    <td mat-cell *matCellDef="let element" class="mat-body-1">
+                        {{ element.checkIn | date:'yyyy-MM-dd' }}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="checkOut">
+                    <th mat-header-cell *matHeaderCellDef class="f-w-600 mat-subtitle-1 f-s-14">Check Out</th>
+                    <td mat-cell *matCellDef="let element" class="mat-body-1">
+                        {{ element.checkOut | date:'yyyy-MM-dd' }}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="status">
+                    <th mat-header-cell *matHeaderCellDef class="f-w-600 mat-subtitle-1 f-s-14">Status</th>
+                    <td mat-cell *matCellDef="let element" class="mat-body-1">
+                        <span [ngClass]="getStatusClass(element.status)" class="rounded f-w-600 p-6 p-y-4 f-s-12">
+                            {{ element.statusName }}
+                        </span>
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="value">
+                    <th mat-header-cell *matHeaderCellDef class="f-w-600 mat-subtitle-1 f-s-14">Value</th>
+                    <td mat-cell *matCellDef="let element" class="mat-body-1">
+                        {{ element.value | number:'0.2' }}
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef class="f-w-600 mat-subtitle-1 f-s-14"></th>
+                    <td mat-cell *matCellDef="let element" class="btn-actions">
+                        <button mat-icon-button [matMenuTriggerFor]="menu">
+                            <mat-icon>
+                                <i-tabler name="dots" class="icon-20"></i-tabler>
+                            </mat-icon>
+                        </button>
+                        <mat-menu #menu="matMenu" class="cardWithShadow">
+                            <button mat-menu-item [routerLink]="['/reservations/edit', element.id]">
+                                <span>Edit</span>
+                            </button>
+                            <button mat-menu-item (click)="openDeleteDialog(element.id)">
+                                <span>Remove</span>
+                            </button>
+                        </mat-menu>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+            </table>
+        </div>
+
+    </mat-card-content>
+</mat-card>

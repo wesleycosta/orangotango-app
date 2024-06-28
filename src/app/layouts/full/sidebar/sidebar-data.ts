@@ -7,12 +7,12 @@ export const navItems: NavItem[] = [
   {
     displayName: 'Dashboard',
     iconName: 'layout-dashboard',
-    route: '/',
+    route: '/dashboard',
   },
   {
     displayName: 'Reservations',
     iconName: 'luggage',
-    route: '/dashboard',
+    route: '/reservations',
   },
   {
     navCap: 'Housekeeping',
