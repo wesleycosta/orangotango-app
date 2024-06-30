@@ -1,64 +1,75 @@
+<div class="bg-light-primary rounded p-y-30 p-x-24 m-b-30 overflow-hidden">
+  <div class="row">
+    <div class="col-sm-8">
+      <h4 class="page-title m-0 f-s-20 f-w-600 m-b-16">Dashboard</h4>
+    </div>
+  </div>
+</div>
+
 <div class="row">
-  <div class="col-lg-3">
-    <mat-card class="cardWithShadow">
-      <mat-card-header class="d-flex align-items-center p-x-24">
-        <mat-card-title>Monthly Earnings</mat-card-title>
-        <div class="m-l-auto">
-          <button mat-fab color="accent" class="shadow-none icon-48">
-            <i-tabler name="currency-dollar" class="text-white d-flex"></i-tabler>
-          </button>
-        </div>
-      </mat-card-header>
-      <mat-card-content class="m-b-32 p-x-24">
-        <h4 class="mat-headline-5">$6,820</h4>
-      </mat-card-content>
+  <div class="col-sm-6 col-lg-3">
+    <mat-card class="mat-mdc-card mdc-card shadow-none">
+      <div class="p-30 bg-light-error text-center cursor-pointer rounded">
+        <h3 class="f-s-24 text-error f-w-600 m-0 m-b-4">10</h3>
+        <h6 class="text-error f-w-600 m-0 f-s-16">Occupied Rooms</h6>
+      </div>
     </mat-card>
   </div>
 
-  <div class="col-lg-3">
-    <mat-card class="cardWithShadow">
-      <mat-card-header class="d-flex align-items-center p-x-24">
-        <mat-card-title>Monthly Earnings</mat-card-title>
-        <div class="m-l-auto">
-          <button mat-fab color="accent" class="shadow-none icon-48">
-            <i-tabler name="currency-dollar" class="text-white d-flex"></i-tabler>
-          </button>
-        </div>
-      </mat-card-header>
-      <mat-card-content class="m-b-32 p-x-24">
-        <h4 class="mat-headline-5">$6,820</h4>
-      </mat-card-content>
+  <div class="col-sm-6 col-lg-3">
+    <mat-card class="mat-mdc-card mdc-card shadow-none">
+      <div class="p-30 bg-light-success text-center cursor-pointer rounded">
+        <h3 class="f-s-24 text-success m-0 m-b-4">3</h3>
+        <h6 class="text-success f-w-600 m-0 f-s-16">Available Rooms</h6>
+      </div>
     </mat-card>
   </div>
-
-  <div class="col-lg-3">
-    <mat-card class="cardWithShadow">
-      <mat-card-header class="d-flex align-items-center p-x-24">
-        <mat-card-title>Monthly Earnings</mat-card-title>
-        <div class="m-l-auto">
-          <button mat-fab color="accent" class="shadow-none icon-48">
-            <i-tabler name="currency-dollar" class="text-white d-flex"></i-tabler>
-          </button>
-        </div>
-      </mat-card-header>
-      <mat-card-content class="m-b-32 p-x-24">
-        <h4 class="mat-headline-5">$6,820</h4>
-      </mat-card-content>
+  <div class="col-sm-6 col-lg-3">
+    <mat-card class="mat-mdc-card mdc-card shadow-none">
+      <div class="p-30 bg-light-accent text-center cursor-pointer rounded">
+        <h3 class="f-s-24 text-accent m-0 m-b-4">3</h3>
+        <h6 class="text-accent f-w-600 m-0 f-s-16">Total Check-Ins</h6>
+      </div>
     </mat-card>
   </div>
+  <div class="col-sm-6 col-lg-3">
+    <mat-card class="mat-mdc-card mdc-card shadow-none">
+      <div class="p-30 bg-light-primary text-center cursor-pointer rounded">
+        <h3 class="f-s-24 text-primary m-0 m-b-4">4</h3>
+        <h6 class="text-primary f-w-600 m-0 f-s-16">Total Check-Outs</h6>
+      </div>
+    </mat-card>
+  </div>
+</div>
 
-  <div class="col-lg-3">
+<div class="row">
+  <div class="col-lg-12">
     <mat-card class="cardWithShadow">
-      <mat-card-header class="d-flex align-items-center p-x-24">
-        <mat-card-title>Monthly Earnings</mat-card-title>
-        <div class="m-l-auto">
-          <button mat-fab color="accent" class="shadow-none icon-48">
-            <i-tabler name="currency-dollar" class="text-white d-flex"></i-tabler>
-          </button>
+      <mat-card-content class="p-24">
+        <div class="d-flex w-100">
+          <mat-card-title>Total Reservations</mat-card-title>
+          <div class="m-l-auto">
+            <mat-form-field class="theme-select" appearance="outline">
+              <mat-select value="mar">
+                <mat-option *ngFor="let month of months" [value]="month.value">
+                  {{ month.viewValue }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
         </div>
-      </mat-card-header>
-      <mat-card-content class="m-b-32 p-x-24">
-        <h4 class="mat-headline-5">$6,820</h4>
+        <apx-chart
+          [series]="salesOverviewChart.series"
+          [dataLabels]="salesOverviewChart.dataLabels"
+          [chart]="salesOverviewChart.chart"
+          [legend]="salesOverviewChart.legend"
+          [xaxis]="salesOverviewChart.xaxis"
+          [yaxis]="salesOverviewChart.yaxis"
+          [grid]="salesOverviewChart.grid"
+          [stroke]="salesOverviewChart.stroke"
+          [tooltip]="salesOverviewChart.tooltip"
+          [plotOptions]="salesOverviewChart.plotOptions"
+        ></apx-chart>
       </mat-card-content>
     </mat-card>
   </div>
