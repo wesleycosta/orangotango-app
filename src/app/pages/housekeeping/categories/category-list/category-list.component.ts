@@ -54,7 +54,6 @@ export class CategoryListComponent implements OnInit {
 
       this.categoryService.delete(id).subscribe({
         next: () => {
-          debugger;
           this.dataSource = this.dataSource.filter(p => p.id != id);
           this.notifierService.notifySuccess();
         },

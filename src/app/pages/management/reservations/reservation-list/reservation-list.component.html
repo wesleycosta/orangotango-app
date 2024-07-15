@@ -75,9 +75,23 @@
                             </mat-icon>
                         </button>
                         <mat-menu #menu="matMenu" class="cardWithShadow">
+
                             <button mat-menu-item [routerLink]="['/reservations/edit', element.id]">
                                 <span>Edit</span>
                             </button>
+
+                            <button mat-menu-item *ngIf="element.status === reservationStatus.Booked" (click)="confirmCheckIn(element.id)">
+                                <span>Check-In</span>
+                            </button>
+
+                            <button mat-menu-item *ngIf="element.status === reservationStatus.CheckIn" (click)="confirmCheckOut(element.id)">
+                                <span>Check-Out</span>
+                            </button>
+
+                            <button mat-menu-item *ngIf="element.status != reservationStatus.Cancelled" (click)="confirmCancel(element.id)">
+                                <span>Cancel</span>
+                            </button>
+
                             <button mat-menu-item (click)="openDeleteDialog(element.id)">
                                 <span>Remove</span>
                             </button>

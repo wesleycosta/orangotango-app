@@ -16,6 +16,7 @@ export class ReservationListComponent implements OnInit {
   dataSource!: ReservationFullModel[];
   searchValue: string = '';
   loadingData: boolean = false;
+  reservationStatus = ReservationStatus;
 
   constructor(private dialog: MatDialog,
     private reservationService: ReservationService,
@@ -55,7 +56,6 @@ export class ReservationListComponent implements OnInit {
 
       this.reservationService.delete(id).subscribe({
         next: () => {
-          debugger;
           this.dataSource = this.dataSource.filter(p => p.id != id);
           this.notifierService.notifySuccess();
         },
@@ -75,11 +75,20 @@ export class ReservationListComponent implements OnInit {
       case ReservationStatus.Booked:
         return ['text-success', 'bg-light-success'];
       case ReservationStatus.Cancelled:
-        return['text-error', 'bg-light-error'];
+        return ['text-error', 'bg-light-error'];
       case ReservationStatus.CheckIn:
         return ['text-accent', 'bg-light-accent'];
       case ReservationStatus.CheckOut:
-        return  ['text-primary', 'bg-light-primary '];
+        return ['text-primary', 'bg-light-primary '];
     }
+  }
+
+  confirmCheckIn(reservationId: string): void {
+  }
+
+  confirmCheckOut(reservationId: string): void {
+  }
+
+  confirmCancel(reservationId: string): void {
   }
 }
