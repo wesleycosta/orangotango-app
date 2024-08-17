@@ -141,9 +141,8 @@ export class AppDashboardComponent {
   dataSource = ELEMENT_DATA;
 
   months: month[] = [
-    { value: 'mar', viewValue: 'March 2023' },
-    { value: 'apr', viewValue: 'April 2023' },
-    { value: 'june', viewValue: 'June 2023' },
+    { value: 'mar', viewValue: '2024' },
+    { value: 'apr', viewValue: '2023' }
   ];
 
   // recent transaction
@@ -259,14 +258,14 @@ export class AppDashboardComponent {
       xaxis: {
         type: 'category',
         categories: [
-          '16/08',
-          '17/08',
-          '18/08',
-          '19/08',
-          '20/08',
-          '21/08',
-          '22/08',
-          '23/08',
+          '01',
+          '02',
+          '03',
+          '04',
+          '05',
+          '06',
+          '07',
+          '08',
         ],
         labels: {
           style: { cssClass: 'grey--text lighten-2--text fill-color' },
